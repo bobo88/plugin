@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>FloorJS测试</title>
+	<style>
+		body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
+		blockquote{margin:0;padding:0;}
+		fieldset,img {border:0;}
+		address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+		ol,ul {list-style:none;}
+		caption,th {text-align: left;}
+		h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight:normal;}
+		q:before,q:after {content:'';}
+		abbr,acronym { border:0;}
+		.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+		.clearfix{display:inline-block;}* html .clearfix{height:1%;}.clearfix{display:block;}
+		body{ font-family: Arial;}
+		h1{ margin: 0 auto; width: 1200px; height: 100px; line-height: 100px; font-size: 30px; font-weight: bold; text-align: center;}
+		.item{ position: relative; z-index: 1; margin: 0 auto; width: 1200px; height: 500px;}
+		.item1{background: #1ab5e3;}
+		.item2{background: #28AF59;}
+		.item3{background: #FF5F09;}
+		.item4{background: #006699;}
+		.item span{ position: absolute; z-index: 2; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #fff;}
+		.footer{ position: relative; z-index: 1; width: 100%; height: 500px; background: #ccc;}
+		.footer span{ position: absolute; z-index: 2; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #069; font-size: 30px; font-weight: bold;}
+
+		.nav{ display: none; position: fixed; z-index: 9999;}
+		.nav li{ margin-bottom: 10px; width: 100px; height: 30px; line-height: 30px; color: #fff; background: #337ab7; text-align: center; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; overflow: hidden;}
+		.nav2 li, .nav4 li{ float: left; margin-right: 10px;}
+		.nav li.active a, .nav li:hover a{ background: #dd0055;}
+		.nav li a{ display: block; color: #fff; text-decoration: none;}
+	</style>
+	<script src="jquery-1.9.1.min.js"></script>
+	<script src="floor.js"></script>
+</head>
+<body>
+	<h1>我是标题：测试FloorJS</h1>
+	<div class="item item1"><span>我是楼层一内容</span></div>
+	<div class="item item2"><span>我是楼层二内容</span></div>
+	<div class="item item3"><span>我是楼层三内容</span></div>
+	<div class="item item4"><span>我是楼层四内容</span></div>
+	<div class="footer"><span>我是页面底部，用于填充内容的。</span></div>
+
+	<ul class="nav nav1">
+		<li><a href="javascript:;">楼层一</a></li>
+		<li><a href="javascript:;">楼层二</a></li>
+		<li><a href="javascript:;">楼层三</a></li>
+		<li><a href="javascript:;">楼层四</a></li>
+	</ul>
+
+	<ul class="nav nav2 clearfix">
+		<li><a href="javascript:;">楼层一</a></li>
+		<li><a href="javascript:;">楼层二</a></li>
+		<li><a href="javascript:;">楼层三</a></li>
+		<li><a href="javascript:;">楼层四</a></li>
+	</ul>
+
+	<ul class="nav nav3 clearfix">
+		<li><a href="javascript:;">楼层一</a></li>
+		<li><a href="javascript:;">楼层二</a></li>
+		<li><a href="javascript:;">楼层三</a></li>
+		<li><a href="javascript:;">楼层四</a></li>
+	</ul>
+
+	<ul class="nav nav4 clearfix">
+		<li><a href="javascript:;">楼层一</a></li>
+		<li><a href="javascript:;">楼层二</a></li>
+		<li><a href="javascript:;">楼层三</a></li>
+		<li><a href="javascript:;">楼层四</a></li>
+	</ul>
+
+	<script>
+		$.floorJS({
+			floorItem: '.item',
+			nav: '.nav1',
+			direction: 'right',
+			offset: '50px 50px' // 当设置direction=right时，offset的两个值分别代表right和top
+		});
+
+		$.floorJS({
+			floorItem: '.item',
+			nav: '.nav2',
+			direction: 'top',
+			offset: '0 500px' //  当设置direction=top时，offset的两个值分别代表top和left
+		});
+
+		$.floorJS({
+			floorItem: '.item',
+			nav: '.nav3',
+			direction: 'left',
+			offset: '50px 50px' //当设置direction=left时，offset的两个值分别代表left和top
+		});
+
+		$.floorJS({
+			floorItem: '.item',
+			nav: '.nav4',
+			direction: 'bottom',
+			offset: '0 500px' // 当设置direction=bottom时，offset的两个值分别代表bottom和left
+		});
+	</script>
+</body>
+</html>
